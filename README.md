@@ -1,12 +1,13 @@
 # HW PET TEMPLATE
 
 > 기존의 GITHUB 계정을 분실하였습니다.
-> 그래서 새로운 계정(ehllocodiny)을 만들고, 기존의 GITHUB 리포지토리를 fork 하여 이 프로젝트를 생성하였습니다.
+> 그래서 새로운 계정(hellocodiny)을 만들고, 기존의 GITHUB 리포지토리를 fork 하여 이 프로젝트를 생성하였습니다.
 > 앞으로는 여기서 프로젝트를 진행하겠습니다.
+> 
 > 2024년 11월 07일
 
 > I have lost access to my previous GitHub account.
-> Therefore, I created a new account (ehllocodiny) and forked the existing GitHub repository to set up this project.
+> Therefore, I created a new account (hellocodiny) and forked the existing GitHub repository to set up this project.
 > From now on, I will continue working on this project here.
 >
 > November 7, 2024
