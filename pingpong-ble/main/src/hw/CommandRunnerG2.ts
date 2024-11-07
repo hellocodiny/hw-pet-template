@@ -515,6 +515,11 @@ export class CommandRunnerG2 extends CommandRunnerBase {
     await this.sendAggregator(2, 0, 0, 0, 0, 0)
   }
 
+  setServoDegree = async (cubeID: number, degree: number): Promise<void> => {
+    await this.enqueue(PingPongUtil.makeServoDegreeData(cubeID, degree))
+    await sleepAsync(this.defaultDelay)
+  }
+
   /** __________ G1 Sensor __________ */
 
   /**
