@@ -6,9 +6,8 @@
         "name": "next",
       },
     ],
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
     },
     "noImplicitAny": false,
     // 아래 문제를 해결하기 위해 declaration:false로 설정

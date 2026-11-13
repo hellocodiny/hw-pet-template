@@ -13,7 +13,6 @@
     "@mui/icons-material": "^9.5.0",
     "@mui/material": "^9.5.0",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^1.10.12",
     "@types/node": "^20.19.43",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
@@ -21,7 +20,7 @@
     "next": "^16.4.6",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "typescript": "^5.3.3"
+    "typescript": "^7.0.2"
   },
   "peerDependencies": {
     "@ktaicoder/hw-pet": "^1.2.9",
