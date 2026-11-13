@@ -11,7 +11,10 @@ export interface NextAppDirEmotionCacheProviderProps {
   options: Omit<OptionsOfCreateCache, 'insertionPoint'>
 
   /** By default <CacheProvider /> from 'import { CacheProvider } from "@emotion/react"' */
-  CacheProvider?: (props: { value: EmotionCache; children: React.ReactNode }) => React.JSX.Element | null
+  CacheProvider?: (props: {
+    value: EmotionCache
+    children: React.ReactNode
+  }) => React.JSX.Element | null
   children: React.ReactNode
 }
 

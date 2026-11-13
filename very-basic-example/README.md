@@ -40,13 +40,11 @@ await hw.echo('hello') // response 'hello'
 - `main/`
   - Contains the content of the iframe to be embedded in the Codiny service.
   - Includes the source code of the web page written in NextJS.
-- `sub/eslint-config/`
-  - Contains eslint configurations.
 - `sub/typescript-config/`
   - Contains TypeScript configurations.
 - `sub/ui/`
   - Contains ui components.
-  
+
 ## Source Code Modification
 
 - There is no need to modify the `sub/` folder.

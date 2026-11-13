@@ -1,0 +1,37 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "semi": false,
+  "useTabs": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "proseWrap": "preserve",
+  "bracketSameLine": false,
+  "sortPackageJson": false,
+  "overrides": [
+    {
+      "files": [
+        "*.json"
+      ],
+      "options": {
+        "printWidth": 200,
+        "tabWidth": 2
+      }
+    }
+  ],
+  "ignorePatterns": [
+    ".next",
+    "public",
+    "static",
+    "node_modules",
+    "**/dist/**",
+    "*.png",
+    "*.svg",
+    "**/.turbo/**",
+    "**/build/**"
+  ]
+}
