@@ -215,13 +215,13 @@ export class CommandRunnerG3 extends CommandRunnerBase {
     }
 
     try {
-      await this.rxCharacteristic.writeValue(packet)
+      await this.rxCharacteristic.writeValue(packet as BufferSource)
     } catch (error) {
       console.error('Failed to write value to rxCharacteristic', error)
     }
 
     try {
-      await this.rxCharacteristic.writeValue(packet)
+      await this.rxCharacteristic.writeValue(packet as BufferSource)
     } catch (error) {
       console.error('Failed to write value to rxCharacteristic', error)
     }

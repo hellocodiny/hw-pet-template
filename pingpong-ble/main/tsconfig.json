@@ -6,12 +6,13 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     },
+    // TS 7은 @types/*를 자동 포함하지 않으므로 Web Bluetooth 전역 타입을 명시한다
+    "types": ["web-bluetooth"],
     "noImplicitReturns": false,
     "noImplicitThis": false,
     "noImplicitAny": false,

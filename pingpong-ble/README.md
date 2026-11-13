@@ -6,13 +6,14 @@ PingPong G1~G4
 
 ## Technical stacks
 
-- nodejs@20
-- nextjs@14
-- react@18
+- nodejs@^20.19 (Next 16 최소 요구 20.9, oxlint/oxfmt 요구 ^20.19)
+- nextjs@16 (Turbopack, App Router)
+- react@19
 - workspace with turborepo
 - pnpm
-- typescript@5
-- @mui/material@5
+- typescript@7
+- @mui/material@9, @mui/material-nextjs@9
+- oxlint, oxfmt
 
 ## Build and Run
 
@@ -37,8 +38,6 @@ await hw.echo('hello') // response 'hello'
 - `main/`
   - 코디니 서비스 내에 임베딩될 iframe의 내용 부분입니다.
   - NextJS로 작성된 웹페이지의 소스코드입니다.
-- `sub/eslint-config/`
-  - eslint 설정이 포함되어 있습니다.
 - `sub/typescript-config/`
   - TypeScript 설정이 포함되어 있습니다.
 - `sub/ui/`
@@ -323,41 +322,43 @@ import { PingPongUtill } from './pingpong-util'
 export class CommandRunnerG1 {
   pingpongutill = new PingPongUtill()
 
-  someFn(){
+  someFn() {
     // 이런 식으로 사용하고 있습니다.
-    this.pingpongutill.byteToString("....")
+    this.pingpongutill.byteToString('....')
   }
 }
 ```
+
 #### 개선 1안
+
 `main/src/hw/pingpong-utils.ts` 파일의 `class PingPongUtil`은 클래스로 만들 필요가 없습니다. 파일 자체가 이미 모듈이므로 함수로 작성하는 것이 좋습니다.
 
 ```js
 import { byteToString } from './pingpong-util'
 export class CommandRunnerG1 {
-
   someFn() {
     // 이런 식으로 사용할 수 있습니다.
-    byteToString("....")
+    byteToString('....')
   }
 }
 ```
 
 #### 개선 2안
-아래와 같이 클래스처럼 사용할 수도 있습니다. 
+
+아래와 같이 클래스처럼 사용할 수도 있습니다.
 
 ```js
 import * as PingPongUtil from './pingpong-utils'
 export class CommandRunnerG1 {
-
   someFn() {
     // 이런 식으로 사용할 수 있습니다.
-    PingPongUtil.byteToString("....")
+    PingPongUtil.byteToString('....')
   }
 }
 ```
 
 #### 개선 3안
+
 어떤 이유로 `PingPongUtill`을 클래스로 만들고 싶다면, 메서드를 static으로 작성하는 것이 좋습니다.
 
 ### 배포

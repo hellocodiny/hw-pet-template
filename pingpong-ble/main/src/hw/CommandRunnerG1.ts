@@ -250,7 +250,7 @@ export class CommandRunnerG1 extends CommandRunnerBase {
   }
 
   async sendData(packet: Uint8Array) {
-    await this.rxCharacteristic?.writeValue(packet)
+    await this.rxCharacteristic?.writeValue(packet as BufferSource)
   }
 
   // async sendData(packet: Uint8Array) {

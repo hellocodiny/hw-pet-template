@@ -21,7 +21,6 @@ export function ConnectButton(props: Props) {
       {connectionState === 'connected' && (
         <ButtonBase
           className={clsx('ConnectButton-root x_connected', className)}
-          component="div"
           onClick={onClickDisconnectBtn}
           style={style}
           sx={flatSx(rootSx, sx)}
@@ -33,7 +32,6 @@ export function ConnectButton(props: Props) {
       {connectionState === 'disconnected' && (
         <ButtonBase
           className={clsx('ConnectButton-root x_disconnected', className)}
-          component="div"
           onClick={onClickConnectBtn}
           style={style}
           sx={flatSx(rootSx, sx)}
@@ -56,6 +54,10 @@ export function ConnectButton(props: Props) {
 }
 
 const rootSx: SxProps = {
+  // 네이티브 <button>은 너비가 내용에 맞게 줄고 글꼴도 상속하지 않으므로 명시한다
+  width: '100%',
+  fontFamily: 'inherit',
+  letterSpacing: 'inherit',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
