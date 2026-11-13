@@ -1,60 +1,16 @@
-'use client'
-
-import { HW_ID, HW_NAME } from '@/constant'
-import { CommandRunner } from '@/hw/CommandRunner'
+import { PetPanel } from '@/components/PetPanel'
 import { Box } from '@mui/material'
-import { ConnectButton, HardwareImageBox, HardwareNameBox, MediaIconBox, usePet } from '@repo/ui'
-import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 
-const LOGO_IMG_URL = 'logo.png'
+// 패널 높이(px): 로고 80 + 이름 32 + 미디어 아이콘 44 + 연결 버튼 40 + 여백(pt 16, mt 8 x 2)
+const PANEL_MIN_HEIGHT = 228
 
-const MEDIA_ICON = 'bluetooth.svg' // for bluetooth device
-// const MEDIA_ICON = 'usb.svg' // for serial device
-
-// Next 15부터 useSearchParams는 Suspense 경계 안에서 호출해야 prerender가 통과한다
+// useSearchParams를 쓰는 클라이언트 서브트리만 Suspense로 감싼다.
+// fallback은 레이아웃 이동을 막기 위해 패널 높이를 미리 확보한다.
 export default function Page() {
   return (
-    <Suspense fallback={null}>
-      <PetPage />
+    <Suspense fallback={<Box sx={{ minHeight: PANEL_MIN_HEIGHT }} />}>
+      <PetPanel />
     </Suspense>
-  )
-}
-
-function PetPage() {
-  const { commandRunner, connectionState, pet } = usePet(HW_ID, CommandRunner, useSearchParams())
-
-  // Click handler for the Connect button
-  const handleClickConnectBtn = () => {
-    const runner = commandRunner
-    if (!runner) return
-    runner.connect()
-  }
-
-  // Click handler for the Disconnect button
-  const handleClickDisconnectBtn = () => {
-    const runner = commandRunner
-    if (!runner) {
-      return
-    }
-    runner.disconnect()
-  }
-
-  return (
-    <Box
-      sx={{
-        pt: 2,
-        bgcolor: '#fff',
-      }}
-    >
-      <HardwareImageBox src={LOGO_IMG_URL} />
-      <HardwareNameBox title={HW_NAME.en} />
-      <MediaIconBox mediaIcon={MEDIA_ICON} />
-      <ConnectButton
-        connectionState={connectionState}
-        onClickConnectBtn={handleClickConnectBtn}
-        onClickDisconnectBtn={handleClickDisconnectBtn}
-      />
-    </Box>
   )
 }

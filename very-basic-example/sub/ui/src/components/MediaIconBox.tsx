@@ -16,13 +16,11 @@ export function MediaIconBox(props: Props) {
   const { sx, className, style, mediaIcon, children } = props
   return (
     <Stack
-      alignItems="center"
       className={clsx('MediaIconBox-root', className)}
       direction="row"
-      justifyContent="center"
       spacing={1}
       style={style}
-      sx={flatSx({ height: 44 }, sx)}
+      sx={flatSx({ height: 44, alignItems: 'center', justifyContent: 'center' }, sx)}
     >
       <img alt="" height={24} src={mediaIcon} width={24} />
       {children}

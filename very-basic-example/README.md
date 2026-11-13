@@ -8,13 +8,14 @@ VeryBasic
 
 ## Technical stacks
 
-- nodejs@20
-- nextjs@14
-- react@18
+- nodejs@^20.19 (Next 16 최소 요구 20.9, oxlint/oxfmt 요구 ^20.19)
+- nextjs@16 (Turbopack, App Router)
+- react@19
 - worspace with turborepo
 - pnpm
 - typescript@^5.3.3
-- @mui/material@5
+- @mui/material@9, @mui/material-nextjs@9
+- oxlint, oxfmt
 
 ## Build and Run
 
