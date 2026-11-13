@@ -17,5 +17,11 @@
   "packageManager": "pnpm@8.9.0",
   "engines": {
     "node": ">=20.19"
+  },
+  "pnpm": {
+    "overrides": {
+      "@babel/runtime@<7.26.10": "^7.26.10",
+      "yaml@<1.10.3": "^1.10.3"
+    }
   }
 }
