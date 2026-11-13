@@ -5,11 +5,7 @@ import MainUi from '@/ui/MainUi'
 import { Box } from '@mui/material'
 import { Suspense } from 'react'
 
-import { useSearchParams } from 'next/navigation'
-
 export default function Page() {
-  const params = useSearchParams()
-
   return (
     <Suspense>
       <Box
