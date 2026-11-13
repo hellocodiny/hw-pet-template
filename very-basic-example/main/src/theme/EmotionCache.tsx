@@ -58,7 +58,8 @@ export default function NextAppDirEmotionCacheProvider(props: NextAppDirEmotionC
     inserted.forEach(({ name, isGlobal }) => {
       const style = registry.cache.inserted[name]
 
-      if (typeof style !== 'boolean') {
+      // @emotion/cache 11.14부터 inserted 값에 undefined가 포함되므로 문자열만 통과시킨다
+      if (typeof style === 'string') {
         if (isGlobal) {
           globals.push({ name, style })
         } else {
