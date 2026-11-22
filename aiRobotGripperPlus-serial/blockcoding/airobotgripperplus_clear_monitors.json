@@ -1,0 +1,11 @@
+{
+  "type": "airobotgripperplus_clear_monitors",
+  "message0": "AI로봇집게+ 교구창 센서 표시 지우기",
+  "args0": [],
+  "inputsInline": true,
+  "colour": 160,
+  "tooltip": "블록으로 추가한 센서 모니터를 지웁니다. 통신은 유지합니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

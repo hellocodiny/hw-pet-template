@@ -1,0 +1,61 @@
+{
+  "type": "airobotgripperplus_pixel_rgb",
+  "message0": "AI로봇집게+ LED %1 을 R %2 G %3 B %4 로 켜기",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "TARGET",
+      "options": [
+        [
+          "전체",
+          "2"
+        ],
+        [
+          "왼쪽 묶음",
+          "0"
+        ],
+        [
+          "오른쪽 묶음",
+          "1"
+        ],
+        [
+          "1번",
+          "3"
+        ],
+        [
+          "2번",
+          "4"
+        ],
+        [
+          "3번",
+          "5"
+        ],
+        [
+          "4번",
+          "6"
+        ]
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "RED",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "GREEN",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "BLUE",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 25,
+  "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

@@ -1,0 +1,615 @@
+[
+  {
+    "type": "airobotgripperplus_move",
+    "pcBlock": "motor_move",
+    "category": "이동",
+    "method": "motor",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "DIRECTION",
+        "options": [
+          [
+            "전진",
+            "1"
+          ],
+          [
+            "후진",
+            "2"
+          ],
+          [
+            "좌회전",
+            "3"
+          ],
+          [
+            "우회전",
+            "4"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_move_time",
+    "pcBlock": "motor_move_secs",
+    "category": "이동",
+    "method": "moveForBlock",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "DIRECTION",
+        "options": [
+          [
+            "전진",
+            "1"
+          ],
+          [
+            "후진",
+            "2"
+          ],
+          [
+            "좌회전",
+            "3"
+          ],
+          [
+            "우회전",
+            "4"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "TIME": 1
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_move_speed_time",
+    "pcBlock": "motor_turn_pwm",
+    "category": "이동",
+    "method": "moveForBlock",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "DIRECTION",
+        "options": [
+          [
+            "전진",
+            "1"
+          ],
+          [
+            "좌회전",
+            "3"
+          ],
+          [
+            "우회전",
+            "4"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "SPEED",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "SPEED": 200,
+      "TIME": 1
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_motor_stop",
+    "pcBlock": "motor_stop",
+    "category": "이동",
+    "method": "motor",
+    "fields": [],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_wait",
+    "pcBlock": "delay_time",
+    "category": "이동",
+    "method": "waitSeconds",
+    "fields": [
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "TIME": 1
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_up_down",
+    "pcBlock": "servo_up_down_position",
+    "category": "관절",
+    "method": "servo",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "위로",
+            "0"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "아래로",
+            "180"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_left_right",
+    "pcBlock": "servo_left_right_position",
+    "category": "관절",
+    "method": "servo",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "왼쪽",
+            "180"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "오른쪽",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_gripper",
+    "pcBlock": "gripper_position",
+    "category": "관절",
+    "method": "servo",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "열기",
+            "0"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "닫기",
+            "180"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_servo",
+    "pcBlock": "servo_angle",
+    "category": "관절",
+    "method": "servo",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "CHANNEL",
+        "options": [
+          [
+            "상하",
+            "1"
+          ],
+          [
+            "좌우",
+            "2"
+          ],
+          [
+            "집게",
+            "3"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "ANGLE",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "ANGLE": 90
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_play_note",
+    "pcBlock": "play_note",
+    "category": "출력",
+    "method": "playNoteBlock",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "OCTAVE",
+        "options": [
+          [
+            "4",
+            "4"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ],
+          [
+            "5",
+            "5"
+          ],
+          [
+            "6",
+            "6"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "NOTE",
+        "options": [
+          [
+            "도",
+            "0"
+          ],
+          [
+            "레",
+            "2"
+          ],
+          [
+            "미",
+            "4"
+          ],
+          [
+            "파",
+            "5"
+          ],
+          [
+            "솔",
+            "7"
+          ],
+          [
+            "라",
+            "9"
+          ],
+          [
+            "시",
+            "11"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "TIME": 0.5
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_pixel_colour",
+    "pcBlock": "neopixel_color",
+    "category": "출력",
+    "method": "pixel",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "TARGET",
+        "options": [
+          [
+            "전체",
+            "2"
+          ],
+          [
+            "왼쪽 묶음",
+            "0"
+          ],
+          [
+            "오른쪽 묶음",
+            "1"
+          ],
+          [
+            "1번",
+            "3"
+          ],
+          [
+            "2번",
+            "4"
+          ],
+          [
+            "3번",
+            "5"
+          ],
+          [
+            "4번",
+            "6"
+          ]
+        ]
+      },
+      {
+        "type": "field_colour",
+        "name": "COLOUR",
+        "colour": "#3366ff"
+      }
+    ],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_pixel_rgb",
+    "pcBlock": "neopixel_rgb",
+    "category": "출력",
+    "method": "pixel",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "TARGET",
+        "options": [
+          [
+            "전체",
+            "2"
+          ],
+          [
+            "왼쪽 묶음",
+            "0"
+          ],
+          [
+            "오른쪽 묶음",
+            "1"
+          ],
+          [
+            "1번",
+            "3"
+          ],
+          [
+            "2번",
+            "4"
+          ],
+          [
+            "3번",
+            "5"
+          ],
+          [
+            "4번",
+            "6"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "RED",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "GREEN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "BLUE",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "RED": 0,
+      "GREEN": 0,
+      "BLUE": 100
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_pixel_index",
+    "pcBlock": "neopixel_index_rgb",
+    "category": "출력",
+    "method": "pixelIndex",
+    "fields": [
+      {
+        "type": "input_value",
+        "name": "INDEX",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "RED",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "GREEN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "BLUE",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "INDEX": 1,
+      "RED": 0,
+      "GREEN": 0,
+      "BLUE": 100
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_pixel_off",
+    "pcBlock": "neopixel_off",
+    "category": "출력",
+    "method": "pixel",
+    "fields": [],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_monitor_sensor",
+    "pcBlock": "monitor_sensor_value",
+    "category": "센서",
+    "method": "monitorSensor",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "SENSOR",
+        "options": [
+          [
+            "초음파 거리",
+            "distance"
+          ],
+          [
+            "왼쪽 적외선",
+            "left"
+          ],
+          [
+            "오른쪽 적외선",
+            "right"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_clear_monitors",
+    "pcBlock": "clear_sensor_monitors",
+    "category": "센서",
+    "method": "clearMonitors",
+    "fields": [],
+    "defaults": {},
+    "reporter": false
+  },
+  {
+    "type": "airobotgripperplus_map_sensor",
+    "pcBlock": "map_ultrasonic",
+    "category": "센서",
+    "method": "mapSensor",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "SENSOR",
+        "options": [
+          [
+            "초음파 거리",
+            "distance"
+          ],
+          [
+            "왼쪽 적외선",
+            "left"
+          ],
+          [
+            "오른쪽 적외선",
+            "right"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "IN_MIN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "IN_MAX",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "OUT_MIN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "OUT_MAX",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "IN_MIN": 5,
+      "IN_MAX": 50,
+      "OUT_MIN": 0,
+      "OUT_MAX": 180
+    },
+    "reporter": true
+  },
+  {
+    "type": "airobotgripperplus_infrared",
+    "pcBlock": "get_infrared",
+    "category": "센서",
+    "method": "sensor",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "SENSOR",
+        "options": [
+          [
+            "왼쪽 적외선",
+            "left"
+          ],
+          [
+            "오른쪽 적외선",
+            "right"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": true
+  },
+  {
+    "type": "airobotgripperplus_ultrasonic",
+    "pcBlock": "get_ultrasonic",
+    "category": "센서",
+    "method": "sensor",
+    "fields": [],
+    "defaults": {},
+    "reporter": true
+  }
+]

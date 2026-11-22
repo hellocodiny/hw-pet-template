@@ -1,0 +1,30 @@
+{
+  "type": "airobotgripperplus_gripper",
+  "message0": "AI로봇집게+ 집게 관절 %1 이동",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "POSITION",
+      "options": [
+        [
+          "열기",
+          "0"
+        ],
+        [
+          "가운데",
+          "90"
+        ],
+        [
+          "닫기",
+          "180"
+        ]
+      ]
+    }
+  ],
+  "inputsInline": true,
+  "colour": 260,
+  "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

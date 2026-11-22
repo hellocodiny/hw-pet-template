@@ -1,0 +1,35 @@
+{
+  "type": "airobotgripperplus_servo",
+  "message0": "AI로봇집게+ %1 관절 %2 도 이동",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "CHANNEL",
+      "options": [
+        [
+          "상하",
+          "1"
+        ],
+        [
+          "좌우",
+          "2"
+        ],
+        [
+          "집게",
+          "3"
+        ]
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "ANGLE",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 260,
+  "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

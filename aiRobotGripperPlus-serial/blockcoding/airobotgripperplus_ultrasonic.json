@@ -1,0 +1,10 @@
+{
+  "type": "airobotgripperplus_ultrasonic",
+  "message0": "AI로봇집게+ 초음파 거리(cm)",
+  "args0": [],
+  "inputsInline": true,
+  "colour": 160,
+  "tooltip": "직접 연결된 로봇의 거리(cm). 0은 반사파 미수신일 수 있습니다.",
+  "helpUrl": "",
+  "output": "Number"
+}

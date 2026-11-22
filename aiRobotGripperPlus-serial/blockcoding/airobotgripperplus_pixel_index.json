@@ -1,0 +1,32 @@
+{
+  "type": "airobotgripperplus_pixel_index",
+  "message0": "AI로봇집게+ LED %1 번을 R %2 G %3 B %4 로 켜기",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "INDEX",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "RED",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "GREEN",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "BLUE",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 25,
+  "tooltip": "개별 LED 번호1~4. 센서 변환 결과도 입력할 수 있습니다. 번호는 반올림합니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

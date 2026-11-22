@@ -1,0 +1,49 @@
+{
+  "type": "airobotgripperplus_map_sensor",
+  "message0": "AI로봇집게+ %1 센서값을 입력 %2 ~ %3 에서 출력 %4 ~ %5 로 변환",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "SENSOR",
+      "options": [
+        [
+          "초음파 거리",
+          "distance"
+        ],
+        [
+          "왼쪽 적외선",
+          "left"
+        ],
+        [
+          "오른쪽 적외선",
+          "right"
+        ]
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "IN_MIN",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "IN_MAX",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "OUT_MIN",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "OUT_MAX",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 160,
+  "tooltip": "PC 초음파 매핑을 센서 선택형으로 확장. 범위 밖 값은 양 끝으로 제한하며, 역방향과 소수 출력을 지원합니다. 직접 연결된 로봇의 값입니다.",
+  "helpUrl": "",
+  "output": "Number"
+}

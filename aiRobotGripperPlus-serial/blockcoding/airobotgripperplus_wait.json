@@ -1,0 +1,17 @@
+{
+  "type": "airobotgripperplus_wait",
+  "message0": "AI로봇집게+ %1 초 기다리기",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "TIME",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 210,
+  "tooltip": "동작 상태를 유지하며 기다립니다. 교구창 전체 출력 정지 시 대기를 취소합니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

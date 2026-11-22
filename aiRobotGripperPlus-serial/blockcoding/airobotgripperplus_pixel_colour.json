@@ -1,0 +1,51 @@
+{
+  "type": "airobotgripperplus_pixel_colour",
+  "message0": "AI로봇집게+ LED %1 을 %2 색으로 켜기",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "TARGET",
+      "options": [
+        [
+          "전체",
+          "2"
+        ],
+        [
+          "왼쪽 묶음",
+          "0"
+        ],
+        [
+          "오른쪽 묶음",
+          "1"
+        ],
+        [
+          "1번",
+          "3"
+        ],
+        [
+          "2번",
+          "4"
+        ],
+        [
+          "3번",
+          "5"
+        ],
+        [
+          "4번",
+          "6"
+        ]
+      ]
+    },
+    {
+      "type": "field_colour",
+      "name": "COLOUR",
+      "colour": "#3366ff"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 25,
+  "tooltip": "PC와 동일하게 선택 색상의 최대 RGB 성분을100으로 환산합니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}
