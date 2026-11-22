@@ -1,0 +1,35 @@
+{
+  "type": "airobotgripper_servo",
+  "message0": "AI로봇집게 %1 관절을 %2 도로 이동",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "CHANNEL",
+      "options": [
+        [
+          "상하",
+          "1"
+        ],
+        [
+          "좌우",
+          "2"
+        ],
+        [
+          "집게",
+          "3"
+        ]
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "ANGLE",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 210,
+  "tooltip": "연결 후 사용합니다. 출력 정지는 마지막 관절 목표각을 유지하고 LED/부저를 끕니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

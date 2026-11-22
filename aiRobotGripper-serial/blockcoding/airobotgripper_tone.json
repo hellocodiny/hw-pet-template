@@ -1,0 +1,17 @@
+{
+  "type": "airobotgripper_tone",
+  "message0": "AI로봇집게 부저를 %1 Hz로 설정 (0: 끄기)",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "HZ",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 210,
+  "tooltip": "연결 후 사용합니다. 출력 정지는 마지막 관절 목표각을 유지하고 LED/부저를 끕니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

@@ -1,0 +1,37 @@
+{
+  "type": "airobotgripper_sensor",
+  "message0": "AI로봇집게 %1 센서값",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "SENSOR",
+      "options": [
+        [
+          "왼쪽 조도",
+          "3"
+        ],
+        [
+          "오른쪽 조도",
+          "4"
+        ],
+        [
+          "상하 가변저항",
+          "0"
+        ],
+        [
+          "좌우 가변저항",
+          "1"
+        ],
+        [
+          "집게 가변저항",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "inputsInline": true,
+  "colour": 195,
+  "tooltip": "센서값 0~1023. 반복문 안에서 조회하면 계속 갱신합니다.",
+  "helpUrl": "",
+  "output": "Number"
+}

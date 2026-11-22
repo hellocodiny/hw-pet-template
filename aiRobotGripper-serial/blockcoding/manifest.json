@@ -1,0 +1,474 @@
+[
+  {
+    "type": "airobotgripper_servo",
+    "method": "servo",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "CHANNEL",
+        "options": [
+          [
+            "상하",
+            "1"
+          ],
+          [
+            "좌우",
+            "2"
+          ],
+          [
+            "집게",
+            "3"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "ANGLE",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "ANGLE": 90
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripper_servos",
+    "method": "servos",
+    "fields": [
+      {
+        "type": "input_value",
+        "name": "UD",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "LR",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "GR",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "UD": 90,
+      "LR": 90,
+      "GR": 90
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripper_pixel",
+    "method": "pixel",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "PIXEL",
+        "options": [
+          [
+            "전체",
+            "2"
+          ],
+          [
+            "1번",
+            "0"
+          ],
+          [
+            "2번",
+            "1"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "R",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "G",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "B",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "R": 255,
+      "G": 0,
+      "B": 0
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripper_blue",
+    "method": "blue",
+    "fields": [
+      {
+        "type": "input_value",
+        "name": "VALUE",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "VALUE": 128
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripper_tone",
+    "method": "tone",
+    "fields": [
+      {
+        "type": "input_value",
+        "name": "HZ",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "HZ": 440
+    },
+    "reporter": false
+  },
+  {
+    "type": "airobotgripper_sensor",
+    "method": "sensor",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "SENSOR",
+        "options": [
+          [
+            "왼쪽 조도",
+            "3"
+          ],
+          [
+            "오른쪽 조도",
+            "4"
+          ],
+          [
+            "상하 가변저항",
+            "0"
+          ],
+          [
+            "좌우 가변저항",
+            "1"
+          ],
+          [
+            "집게 가변저항",
+            "2"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": true
+  },
+  {
+    "type": "airobotgripper_up_down",
+    "method": "servo",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "위로",
+            "0"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "아래로",
+            "180"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false,
+    "testKind": "special"
+  },
+  {
+    "type": "airobotgripper_left_right",
+    "method": "servo",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "왼쪽",
+            "180"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "오른쪽",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false,
+    "testKind": "special"
+  },
+  {
+    "type": "airobotgripper_gripper",
+    "method": "servo",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "열기",
+            "0"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "닫기",
+            "180"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false,
+    "testKind": "special"
+  },
+  {
+    "type": "airobotgripper_pixel_colour",
+    "method": "pixel",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "PIXEL",
+        "options": [
+          [
+            "전체",
+            "2"
+          ],
+          [
+            "1번",
+            "0"
+          ],
+          [
+            "2번",
+            "1"
+          ]
+        ]
+      },
+      {
+        "type": "field_colour",
+        "name": "COLOUR",
+        "colour": "#ff0000"
+      }
+    ],
+    "defaults": {},
+    "reporter": false,
+    "testKind": "special"
+  },
+  {
+    "type": "airobotgripper_play_note",
+    "method": "playNote",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "OCTAVE",
+        "options": [
+          [
+            "4",
+            "4"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ],
+          [
+            "5",
+            "5"
+          ],
+          [
+            "6",
+            "6"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "NOTE",
+        "options": [
+          [
+            "도",
+            "0"
+          ],
+          [
+            "도♯",
+            "1"
+          ],
+          [
+            "레",
+            "2"
+          ],
+          [
+            "레♯",
+            "3"
+          ],
+          [
+            "미",
+            "4"
+          ],
+          [
+            "파",
+            "5"
+          ],
+          [
+            "파♯",
+            "6"
+          ],
+          [
+            "솔",
+            "7"
+          ],
+          [
+            "솔♯",
+            "8"
+          ],
+          [
+            "라",
+            "9"
+          ],
+          [
+            "라♯",
+            "10"
+          ],
+          [
+            "시",
+            "11"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "SECONDS",
+        "options": [
+          [
+            "0.5",
+            "0.5"
+          ],
+          [
+            "0.125",
+            "0.125"
+          ],
+          [
+            "0.25",
+            "0.25"
+          ],
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "4",
+            "4"
+          ],
+          [
+            "8",
+            "8"
+          ]
+        ]
+      }
+    ],
+    "defaults": {},
+    "reporter": false,
+    "testKind": "special"
+  },
+  {
+    "type": "airobotgripper_map_sensor",
+    "method": "mapSensor",
+    "fields": [
+      {
+        "type": "field_dropdown",
+        "name": "SENSOR",
+        "options": [
+          [
+            "왼쪽 조도",
+            "3"
+          ],
+          [
+            "오른쪽 조도",
+            "4"
+          ],
+          [
+            "상하 가변저항",
+            "0"
+          ],
+          [
+            "좌우 가변저항",
+            "1"
+          ],
+          [
+            "집게 가변저항",
+            "2"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "IN_MIN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "IN_MAX",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "OUT_MIN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "OUT_MAX",
+        "check": "Number"
+      }
+    ],
+    "defaults": {
+      "IN_MIN": 0,
+      "IN_MAX": 1023,
+      "OUT_MIN": 0,
+      "OUT_MAX": 180
+    },
+    "reporter": true
+  },
+  {
+    "type": "airobotgripper_pixel_off",
+    "method": "pixel",
+    "fields": [],
+    "defaults": {},
+    "reporter": false,
+    "testKind": "special"
+  }
+]

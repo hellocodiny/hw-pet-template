@@ -1,0 +1,11 @@
+{
+  "type": "airobotgripper_pixel_off",
+  "message0": "AI로봇집게 LED 모두 끄기",
+  "args0": [],
+  "inputsInline": true,
+  "colour": 210,
+  "tooltip": "네오픽셀 LED 2개를 모두 끕니다. 파란 LED, 부저, 관절에는 영향을 주지 않습니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}
