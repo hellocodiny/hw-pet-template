@@ -1,0 +1,74 @@
+# 업그레이드한 3개 프로젝트만 검증한다.
+# 나머지 7개는 업체가 개발했고 실기기 검증이 불가능해 버전을 고정한다. audit-legacy.yml 참고.
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "very-basic-example/**"
+      - "pingpong-ble/**"
+      - "aiRobotGripperPlus-serial/**"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    paths:
+      - "very-basic-example/**"
+      - "pingpong-ble/**"
+      - "aiRobotGripperPlus-serial/**"
+      - ".github/workflows/ci.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: verify (${{ matrix.project }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [very-basic-example, pingpong-ble, aiRobotGripperPlus-serial]
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm 버전은 각 프로젝트 package.json의 packageManager 값을 따른다.
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: ${{ matrix.project }}/package.json
+
+      # package.json engines.node(>=20.19)를 만족하며 로컬 검증에 쓴 24를 사용한다.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: ${{ matrix.project }}/pnpm-lock.yaml
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: 취약점 검사
+        run: pnpm audit
+
+      - name: 포맷 검사
+        run: pnpm format:check
+
+      - name: 린트
+        run: pnpm lint
+
+      # typecheck, test 스크립트는 일부 프로젝트에만 있다.
+      - name: 타입 검사
+        run: pnpm run --if-present typecheck
+
+      - name: 테스트
+        run: pnpm run --if-present test
+
+      - name: 빌드
+        run: pnpm build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /

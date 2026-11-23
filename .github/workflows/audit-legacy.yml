@@ -1,0 +1,42 @@
+# 버전을 고정한 7개 프로젝트의 취약점 현황만 보고한다.
+# 코드는 변경하지 않고 실패해도 다른 작업을 막지 않는다(continue-on-error).
+# 해결은 업체 협의와 실기기 검증이 선행되어야 한다.
+name: Audit (legacy)
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 매주 월요일 00:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: audit (${{ matrix.project }})
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - aiRobotGripper-serial
+          - exMarsCube
+          - huenit-serial
+          - marty
+          - saeonAltinoLite-ble
+          - saeonSmartFarm-serial
+          - whalesbot-ble
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # 이 프로젝트들의 lockfile은 6.0이라 packageManager에 적힌 pnpm 8로만 읽힌다.
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: ${{ matrix.project }}/package.json
+
+      # audit은 lockfile만 읽으므로 install이 필요 없다.
+      - run: pnpm audit
