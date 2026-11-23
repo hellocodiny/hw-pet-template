@@ -1,27 +1,26 @@
-import type { ConnectionState } from '@ktaicoder/hw-pet'
-import type { SxProps } from '@mui/material'
-import { Box, ButtonBase } from '@mui/material'
-import { clsx } from 'clsx'
-import { flatSx } from '../util'
+import type { ConnectionState } from '@ktaicoder/hw-pet';
+import type { SxProps } from '@mui/material';
+import { Box, ButtonBase } from '@mui/material';
+import { clsx } from 'clsx';
+import { flatSx } from '../util';
 
 interface Props {
-  sx?: SxProps
-  className?: string
-  style?: React.CSSProperties
-  connectionState: ConnectionState
-  onClickDisconnectBtn: React.MouseEventHandler
-  onClickConnectBtn: React.MouseEventHandler
+  sx?: SxProps;
+  className?: string;
+  style?: React.CSSProperties;
+  connectionState: ConnectionState;
+  onClickDisconnectBtn: React.MouseEventHandler;
+  onClickConnectBtn: React.MouseEventHandler;
 }
 
 export function ConnectButton(props: Props) {
-  const { sx, className, style, connectionState, onClickConnectBtn, onClickDisconnectBtn } = props
+  const { sx, className, style, connectionState, onClickConnectBtn, onClickDisconnectBtn } = props;
 
   return (
     <>
       {connectionState === 'connected' && (
         <ButtonBase
           className={clsx('ConnectButton-root x_connected', className)}
-          component="div"
           onClick={onClickDisconnectBtn}
           style={style}
           sx={flatSx(rootSx, sx)}
@@ -33,7 +32,6 @@ export function ConnectButton(props: Props) {
       {connectionState === 'disconnected' && (
         <ButtonBase
           className={clsx('ConnectButton-root x_disconnected', className)}
-          component="div"
           onClick={onClickConnectBtn}
           style={style}
           sx={flatSx(rootSx, sx)}
@@ -52,10 +50,14 @@ export function ConnectButton(props: Props) {
         </Box>
       )}
     </>
-  )
+  );
 }
 
 const rootSx: SxProps = {
+  // 네이티브 <button>은 너비가 내용에 맞게 줄고 글꼴도 상속하지 않으므로 명시한다
+  width: '100%',
+  fontFamily: 'inherit',
+  letterSpacing: 'inherit',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -102,4 +104,4 @@ const rootSx: SxProps = {
     boxShadow: 'none',
     maxWidth: '90%',
   },
-}
+};

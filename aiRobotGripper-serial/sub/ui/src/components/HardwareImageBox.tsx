@@ -1,17 +1,17 @@
-import type { SxProps } from '@mui/material'
-import { Box } from '@mui/material'
-import clsx from 'clsx'
-import { flatSx } from '../util'
+import type { SxProps } from '@mui/material';
+import { Box } from '@mui/material';
+import clsx from 'clsx';
+import { flatSx } from '../util';
 
 interface Props {
-  sx?: SxProps
-  className?: string
-  style?: React.CSSProperties
-  src: string
+  sx?: SxProps;
+  className?: string;
+  style?: React.CSSProperties;
+  src: string;
 }
 
 export function HardwareImageBox(props: Props) {
-  const { sx, className, style, src } = props
+  const { sx, className, style, src } = props;
   return (
     <Box
       className={clsx('HardwareImageBox-root', className)}
@@ -33,5 +33,5 @@ export function HardwareImageBox(props: Props) {
     >
       <img alt="" src={src} />
     </Box>
-  )
+  );
 }
