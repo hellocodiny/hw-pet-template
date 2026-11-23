@@ -1,12 +1,15 @@
 // Registration draft: aiRobotGripperPlus routing prefix requires KT confirmation.
-Blockly.JavaScript['airobotgripperplus_map_sensor'] = function(block) {
+Blockly.JavaScript['airobotgripperplus_map_sensor'] = function (block) {
   const generator = Blockly.JavaScript;
-  const Order = {NONE: Blockly.JavaScript.ORDER_NONE, AWAIT: Blockly.JavaScript.ORDER_AWAIT ?? Blockly.JavaScript.ORDER_NONE};
+  const Order = {
+    NONE: Blockly.JavaScript.ORDER_NONE,
+    AWAIT: Blockly.JavaScript.ORDER_AWAIT ?? Blockly.JavaScript.ORDER_NONE,
+  };
   const SENSOR = JSON.stringify(block.getFieldValue('SENSOR'));
-  const IN_MIN = generator.valueToCode(block, 'IN_MIN', Order.NONE) || "5";
-  const IN_MAX = generator.valueToCode(block, 'IN_MAX', Order.NONE) || "50";
-  const OUT_MIN = generator.valueToCode(block, 'OUT_MIN', Order.NONE) || "0";
-  const OUT_MAX = generator.valueToCode(block, 'OUT_MAX', Order.NONE) || "180";
+  const IN_MIN = generator.valueToCode(block, 'IN_MIN', Order.NONE) || '5';
+  const IN_MAX = generator.valueToCode(block, 'IN_MAX', Order.NONE) || '50';
+  const OUT_MIN = generator.valueToCode(block, 'OUT_MIN', Order.NONE) || '0';
+  const OUT_MAX = generator.valueToCode(block, 'OUT_MAX', Order.NONE) || '180';
   const code = `await makerKit.hw.run(routineContext, 'aiRobotGripperPlus.mapSensor', ${SENSOR}, (${IN_MIN}), (${IN_MAX}), (${OUT_MIN}), (${OUT_MAX}))`;
   return [code, Order.AWAIT];
 };

@@ -1,11 +1,13 @@
 # AI로봇집게+ 블록 등록 안내
 
 ## 완료 범위
+
 - PC 프로그램의 교구 전용 블록19종을 기준으로 정의/제너레이터를 작성했습니다.
 - 각 블록에서 호출하는 CommandRunner 함수 구현과 자동 검사를 완료했습니다.
 - 개인 초음파 블록 1종의 저장·표시를 확인했습니다. 교구 서버 배포 및 실제 블록 실행은 미확인입니다.
 
 ## 파일 구성
+
 - blockcoding/definitions.json: 전체 블록 정의 배열.
 - blockcoding/generators.js: 전체 제너레이터 모음.
 - blockcoding/flyout.json: 블록 순서와 숫자 기본값.
@@ -14,6 +16,7 @@
 - blockcoding/legacy/*.js: 편집기가 Blockly.JavaScript['type'] 형식을 사용하는 경우의 동일 기능 제너레이터.
 
 ## 진행 순서 및 현재 상태
+
 1. 연동 소스와 블록 19종 초안을 별도 PR로 제출합니다. 개인 블록 등록은 PR의 선행 조건이 아닙니다.
 2. KT 담당자에게 교구 등록·배포, 호출 접두어 및 블록 반영 주체/방법을 확인합니다.
 3. 확정된 등록 규칙에 맞춰 블록을 반영하고 실제 연결된 작품에서 시험합니다.
@@ -25,6 +28,7 @@
 편집기는 `javascriptGenerator.forBlock` / `Order` 형식이며 저장 창 왼쪽에서 제너레이터를 입력합니다.
 
 ## KT 확인 항목
+
 - IFRAME 교구 ID: aiRobotGripperPlus-serial (제안)
 - 호출 접두어: aiRobotGripperPlus (제안)
 - makerKit.hw.run(routineContext, 'aiRobotGripperPlus.method', ...args) → 해당 IFRAME CommandRunner 라우팅
