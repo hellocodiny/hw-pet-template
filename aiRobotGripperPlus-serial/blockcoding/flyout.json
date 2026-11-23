@@ -1,0 +1,249 @@
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "label",
+      "text": "AI로봇집게+ 이동"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_move"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_move_time",
+      "inputs": {
+        "TIME": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_move_speed_time",
+      "inputs": {
+        "SPEED": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 200
+            }
+          }
+        },
+        "TIME": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_motor_stop"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_wait",
+      "inputs": {
+        "TIME": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "label",
+      "text": "AI로봇집게+ 관절"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_up_down"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_left_right"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_gripper"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_servo",
+      "inputs": {
+        "ANGLE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 90
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "label",
+      "text": "AI로봇집게+ 출력"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_play_note",
+      "inputs": {
+        "TIME": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0.5
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_pixel_colour"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_pixel_rgb",
+      "inputs": {
+        "RED": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        "GREEN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        "BLUE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 100
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_pixel_index",
+      "inputs": {
+        "INDEX": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        },
+        "RED": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        "GREEN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        "BLUE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 100
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_pixel_off"
+    },
+    {
+      "kind": "label",
+      "text": "AI로봇집게+ 센서"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_monitor_sensor"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_clear_monitors"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_map_sensor",
+      "inputs": {
+        "IN_MIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5
+            }
+          }
+        },
+        "IN_MAX": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 50
+            }
+          }
+        },
+        "OUT_MIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        "OUT_MAX": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 180
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_infrared"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripperplus_ultrasonic"
+    }
+  ]
+}

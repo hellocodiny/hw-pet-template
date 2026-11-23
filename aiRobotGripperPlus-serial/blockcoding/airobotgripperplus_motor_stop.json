@@ -1,0 +1,11 @@
+{
+  "type": "airobotgripperplus_motor_stop",
+  "message0": "AI로봇집게+ 바퀴 정지",
+  "args0": [],
+  "inputsInline": true,
+  "colour": 210,
+  "tooltip": "바퀴만 정지합니다. LED와 부저 상태는 유지합니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

@@ -1,0 +1,25 @@
+{
+  "type": "airobotgripperplus_infrared",
+  "message0": "AI로봇집게+ %1 센서값",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "SENSOR",
+      "options": [
+        [
+          "왼쪽 적외선",
+          "left"
+        ],
+        [
+          "오른쪽 적외선",
+          "right"
+        ]
+      ]
+    }
+  ],
+  "inputsInline": true,
+  "colour": 160,
+  "tooltip": "직접 연결된 로봇의 적외선 원시값0/1. 가운데 센서는 지원하지 않습니다.",
+  "helpUrl": "",
+  "output": "Number"
+}

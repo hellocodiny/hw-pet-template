@@ -1,0 +1,11 @@
+{
+  "type": "airobotgripperplus_pixel_off",
+  "message0": "AI로봇집게+ LED 모두 끄기",
+  "args0": [],
+  "inputsInline": true,
+  "colour": 25,
+  "tooltip": "네오픽셀4개를 끕니다. 펌웨어 배터리 경고 표시는 우선 적용됩니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

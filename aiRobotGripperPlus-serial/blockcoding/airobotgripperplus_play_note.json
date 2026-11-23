@@ -1,0 +1,77 @@
+{
+  "type": "airobotgripperplus_play_note",
+  "message0": "AI로봇집게+ %1 옥타브 %2 음을 %3 초 연주",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "OCTAVE",
+      "options": [
+        [
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "2"
+        ],
+        [
+          "3",
+          "3"
+        ],
+        [
+          "5",
+          "5"
+        ],
+        [
+          "6",
+          "6"
+        ]
+      ]
+    },
+    {
+      "type": "field_dropdown",
+      "name": "NOTE",
+      "options": [
+        [
+          "도",
+          "0"
+        ],
+        [
+          "레",
+          "2"
+        ],
+        [
+          "미",
+          "4"
+        ],
+        [
+          "파",
+          "5"
+        ],
+        [
+          "솔",
+          "7"
+        ],
+        [
+          "라",
+          "9"
+        ],
+        [
+          "시",
+          "11"
+        ]
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "TIME",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 25,
+  "tooltip": "최대2040Hz, 8Hz 단위. 높은 음은 최대 주파수로 제한됩니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

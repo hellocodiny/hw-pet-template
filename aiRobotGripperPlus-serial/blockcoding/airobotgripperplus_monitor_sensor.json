@@ -1,0 +1,30 @@
+{
+  "type": "airobotgripperplus_monitor_sensor",
+  "message0": "AI로봇집게+ %1 값을 교구창에 계속 표시",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "SENSOR",
+      "options": [
+        [
+          "초음파 거리",
+          "distance"
+        ],
+        [
+          "왼쪽 적외선",
+          "left"
+        ],
+        [
+          "오른쪽 적외선",
+          "right"
+        ]
+      ]
+    }
+  ],
+  "inputsInline": true,
+  "colour": 160,
+  "tooltip": "직접 연결된 로봇의 최신 값을 교구창 센서 모니터에 표시합니다. 코디니 무대 표시가 아닙니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

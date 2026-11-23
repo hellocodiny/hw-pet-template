@@ -1,0 +1,625 @@
+[
+  {
+    "type": "airobotgripperplus_move",
+    "message0": "AI로봇집게+ %1 계속 이동",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "DIRECTION",
+        "options": [
+          [
+            "전진",
+            "1"
+          ],
+          [
+            "후진",
+            "2"
+          ],
+          [
+            "좌회전",
+            "3"
+          ],
+          [
+            "우회전",
+            "4"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "colour": 210,
+    "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_move_time",
+    "message0": "AI로봇집게+ %1 %2 초 이동",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "DIRECTION",
+        "options": [
+          [
+            "전진",
+            "1"
+          ],
+          [
+            "후진",
+            "2"
+          ],
+          [
+            "좌회전",
+            "3"
+          ],
+          [
+            "우회전",
+            "4"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 210,
+    "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_move_speed_time",
+    "message0": "AI로봇집게+ %1 속도 %2 로 %3 초 이동",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "DIRECTION",
+        "options": [
+          [
+            "전진",
+            "1"
+          ],
+          [
+            "좌회전",
+            "3"
+          ],
+          [
+            "우회전",
+            "4"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "SPEED",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 210,
+    "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_motor_stop",
+    "message0": "AI로봇집게+ 바퀴 정지",
+    "args0": [],
+    "inputsInline": true,
+    "colour": 210,
+    "tooltip": "바퀴만 정지합니다. LED와 부저 상태는 유지합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_wait",
+    "message0": "AI로봇집게+ %1 초 기다리기",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 210,
+    "tooltip": "동작 상태를 유지하며 기다립니다. 교구창 전체 출력 정지 시 대기를 취소합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_up_down",
+    "message0": "AI로봇집게+ 상하 관절 %1 이동",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "위로",
+            "0"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "아래로",
+            "180"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "colour": 260,
+    "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_left_right",
+    "message0": "AI로봇집게+ 좌우 관절 %1 이동",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "왼쪽",
+            "180"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "오른쪽",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "colour": 260,
+    "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_gripper",
+    "message0": "AI로봇집게+ 집게 관절 %1 이동",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "POSITION",
+        "options": [
+          [
+            "열기",
+            "0"
+          ],
+          [
+            "가운데",
+            "90"
+          ],
+          [
+            "닫기",
+            "180"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "colour": 260,
+    "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_servo",
+    "message0": "AI로봇집게+ %1 관절 %2 도 이동",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "CHANNEL",
+        "options": [
+          [
+            "상하",
+            "1"
+          ],
+          [
+            "좌우",
+            "2"
+          ],
+          [
+            "집게",
+            "3"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "ANGLE",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 260,
+    "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_play_note",
+    "message0": "AI로봇집게+ %1 옥타브 %2 음을 %3 초 연주",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "OCTAVE",
+        "options": [
+          [
+            "4",
+            "4"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "3"
+          ],
+          [
+            "5",
+            "5"
+          ],
+          [
+            "6",
+            "6"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "NOTE",
+        "options": [
+          [
+            "도",
+            "0"
+          ],
+          [
+            "레",
+            "2"
+          ],
+          [
+            "미",
+            "4"
+          ],
+          [
+            "파",
+            "5"
+          ],
+          [
+            "솔",
+            "7"
+          ],
+          [
+            "라",
+            "9"
+          ],
+          [
+            "시",
+            "11"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 25,
+    "tooltip": "최대2040Hz, 8Hz 단위. 높은 음은 최대 주파수로 제한됩니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_pixel_colour",
+    "message0": "AI로봇집게+ LED %1 을 %2 색으로 켜기",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "TARGET",
+        "options": [
+          [
+            "전체",
+            "2"
+          ],
+          [
+            "왼쪽 묶음",
+            "0"
+          ],
+          [
+            "오른쪽 묶음",
+            "1"
+          ],
+          [
+            "1번",
+            "3"
+          ],
+          [
+            "2번",
+            "4"
+          ],
+          [
+            "3번",
+            "5"
+          ],
+          [
+            "4번",
+            "6"
+          ]
+        ]
+      },
+      {
+        "type": "field_colour",
+        "name": "COLOUR",
+        "colour": "#3366ff"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 25,
+    "tooltip": "PC와 동일하게 선택 색상의 최대 RGB 성분을100으로 환산합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_pixel_rgb",
+    "message0": "AI로봇집게+ LED %1 을 R %2 G %3 B %4 로 켜기",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "TARGET",
+        "options": [
+          [
+            "전체",
+            "2"
+          ],
+          [
+            "왼쪽 묶음",
+            "0"
+          ],
+          [
+            "오른쪽 묶음",
+            "1"
+          ],
+          [
+            "1번",
+            "3"
+          ],
+          [
+            "2번",
+            "4"
+          ],
+          [
+            "3번",
+            "5"
+          ],
+          [
+            "4번",
+            "6"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "RED",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "GREEN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "BLUE",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 25,
+    "tooltip": "선택한 모든 제어 대상에 적용합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_pixel_index",
+    "message0": "AI로봇집게+ LED %1 번을 R %2 G %3 B %4 로 켜기",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "INDEX",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "RED",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "GREEN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "BLUE",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 25,
+    "tooltip": "개별 LED 번호1~4. 센서 변환 결과도 입력할 수 있습니다. 번호는 반올림합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_pixel_off",
+    "message0": "AI로봇집게+ LED 모두 끄기",
+    "args0": [],
+    "inputsInline": true,
+    "colour": 25,
+    "tooltip": "네오픽셀4개를 끕니다. 펌웨어 배터리 경고 표시는 우선 적용됩니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_monitor_sensor",
+    "message0": "AI로봇집게+ %1 값을 교구창에 계속 표시",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SENSOR",
+        "options": [
+          [
+            "초음파 거리",
+            "distance"
+          ],
+          [
+            "왼쪽 적외선",
+            "left"
+          ],
+          [
+            "오른쪽 적외선",
+            "right"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "colour": 160,
+    "tooltip": "직접 연결된 로봇의 최신 값을 교구창 센서 모니터에 표시합니다. 코디니 무대 표시가 아닙니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_clear_monitors",
+    "message0": "AI로봇집게+ 교구창 센서 표시 지우기",
+    "args0": [],
+    "inputsInline": true,
+    "colour": 160,
+    "tooltip": "블록으로 추가한 센서 모니터를 지웁니다. 통신은 유지합니다.",
+    "helpUrl": "",
+    "previousStatement": null,
+    "nextStatement": null
+  },
+  {
+    "type": "airobotgripperplus_map_sensor",
+    "message0": "AI로봇집게+ %1 센서값을 입력 %2 ~ %3 에서 출력 %4 ~ %5 로 변환",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SENSOR",
+        "options": [
+          [
+            "초음파 거리",
+            "distance"
+          ],
+          [
+            "왼쪽 적외선",
+            "left"
+          ],
+          [
+            "오른쪽 적외선",
+            "right"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "IN_MIN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "IN_MAX",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "OUT_MIN",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "OUT_MAX",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 160,
+    "tooltip": "PC 초음파 매핑을 센서 선택형으로 확장. 범위 밖 값은 양 끝으로 제한하며, 역방향과 소수 출력을 지원합니다. 직접 연결된 로봇의 값입니다.",
+    "helpUrl": "",
+    "output": "Number"
+  },
+  {
+    "type": "airobotgripperplus_infrared",
+    "message0": "AI로봇집게+ %1 센서값",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "SENSOR",
+        "options": [
+          [
+            "왼쪽 적외선",
+            "left"
+          ],
+          [
+            "오른쪽 적외선",
+            "right"
+          ]
+        ]
+      }
+    ],
+    "inputsInline": true,
+    "colour": 160,
+    "tooltip": "직접 연결된 로봇의 적외선 원시값0/1. 가운데 센서는 지원하지 않습니다.",
+    "helpUrl": "",
+    "output": "Number"
+  },
+  {
+    "type": "airobotgripperplus_ultrasonic",
+    "message0": "AI로봇집게+ 초음파 거리(cm)",
+    "args0": [],
+    "inputsInline": true,
+    "colour": 160,
+    "tooltip": "직접 연결된 로봇의 거리(cm). 0은 반사파 미수신일 수 있습니다.",
+    "helpUrl": "",
+    "output": "Number"
+  }
+]
