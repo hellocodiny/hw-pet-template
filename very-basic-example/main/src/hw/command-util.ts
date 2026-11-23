@@ -1,4 +1,4 @@
-import { sleepAsync } from '@/util/misc'
+import { sleepAsync } from '@/util/misc';
 
 /**
  * Connects to the hardware.
@@ -6,8 +6,8 @@ import { sleepAsync } from '@/util/misc'
  * @returns Promise<boolean>
  */
 export async function fakeConnect(): Promise<boolean> {
-  await sleepAsync(1000)
-  return true
+  await sleepAsync(1000);
+  return true;
 }
 
 /**
@@ -16,6 +16,6 @@ export async function fakeConnect(): Promise<boolean> {
  * @returns Promise<boolean>
  */
 export async function fakeDisconnect(): Promise<boolean> {
-  await sleepAsync(300)
-  return true
+  await sleepAsync(300);
+  return true;
 }

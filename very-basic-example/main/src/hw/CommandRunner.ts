@@ -1,4 +1,4 @@
-import { CommandRunnerBase } from './CommandRunnerBase'
+import { CommandRunnerBase } from './CommandRunnerBase';
 
 /**
  * Inherits from the CommandRunnerBase class.
@@ -13,8 +13,8 @@ export class CommandRunner extends CommandRunnerBase {
    * @returns 'bar'
    */
   foo = async (): Promise<string> => {
-    return 'bar'
-  }
+    return 'bar';
+  };
 
   /**
    * command: echo
@@ -24,6 +24,6 @@ export class CommandRunner extends CommandRunnerBase {
    * @returns echo string
    */
   echo = async (what: string): Promise<string> => {
-    return what
-  }
+    return what;
+  };
 }

@@ -1,20 +1,20 @@
-import type { ConnectionState } from '@ktaicoder/hw-pet'
-import type { SxProps } from '@mui/material'
-import { Box, ButtonBase } from '@mui/material'
-import { clsx } from 'clsx'
-import { flatSx } from '../util'
+import type { ConnectionState } from '@ktaicoder/hw-pet';
+import type { SxProps } from '@mui/material';
+import { Box, ButtonBase } from '@mui/material';
+import { clsx } from 'clsx';
+import { flatSx } from '../util';
 
 interface Props {
-  sx?: SxProps
-  className?: string
-  style?: React.CSSProperties
-  connectionState: ConnectionState
-  onClickDisconnectBtn: React.MouseEventHandler
-  onClickConnectBtn: React.MouseEventHandler
+  sx?: SxProps;
+  className?: string;
+  style?: React.CSSProperties;
+  connectionState: ConnectionState;
+  onClickDisconnectBtn: React.MouseEventHandler;
+  onClickConnectBtn: React.MouseEventHandler;
 }
 
 export function ConnectButton(props: Props) {
-  const { sx, className, style, connectionState, onClickConnectBtn, onClickDisconnectBtn } = props
+  const { sx, className, style, connectionState, onClickConnectBtn, onClickDisconnectBtn } = props;
 
   return (
     <>
@@ -50,7 +50,7 @@ export function ConnectButton(props: Props) {
         </Box>
       )}
     </>
-  )
+  );
 }
 
 const rootSx: SxProps = {
@@ -104,4 +104,4 @@ const rootSx: SxProps = {
     boxShadow: 'none',
     maxWidth: '90%',
   },
-}
+};

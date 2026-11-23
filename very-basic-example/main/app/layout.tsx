@@ -1,13 +1,13 @@
-import theme from '@/theme/theme'
-import CssBaseline from '@mui/material/CssBaseline'
-import { ThemeProvider } from '@mui/material/styles'
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter'
-import type { Metadata } from 'next'
+import theme from '@/theme/theme';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Codiny Hw Iframe',
   description: 'codiny hw iframe',
-}
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }): React.JSX.Element {
   return (
@@ -22,5 +22,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         </AppRouterCacheProvider>
       </body>
     </html>
-  )
+  );
 }

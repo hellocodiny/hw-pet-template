@@ -1,4 +1,4 @@
-import type { SxProps, Theme } from '@mui/material'
+import type { SxProps, Theme } from '@mui/material';
 
 /**
  * Creates an array by flattening SxProps
@@ -11,5 +11,5 @@ export function flatSx<T extends Theme = Theme>(
   return sxArray
     .filter(Boolean) // filter undefined
     .flatMap((sx) => (Array.isArray(sx) ? sx : [sx ?? false]))
-    .filter((it) => it !== false)
+    .filter((it) => it !== false);
 }

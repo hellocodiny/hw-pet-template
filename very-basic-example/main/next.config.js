@@ -1,4 +1,4 @@
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH;
 
 /**
  * @type {import('next').NextConfig}
@@ -8,6 +8,6 @@ const nextConfig = {
   output: BASE_PATH === '/' ? 'standalone' : 'export',
   basePath: BASE_PATH === '/' ? '' : BASE_PATH,
   transpilePackages: ['@repo/ui'],
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

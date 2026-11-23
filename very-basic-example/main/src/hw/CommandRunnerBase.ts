@@ -1,14 +1,14 @@
-import log from '@/log'
-import type { HPetNotifiyEventDefinition } from '@ktaicoder/hw-pet'
+import log from '@/log';
+import type { HPetNotifiyEventDefinition } from '@ktaicoder/hw-pet';
 import {
   HPetNotifyEventKeys,
   type ConnectionState,
   type IHPetCommandRunner,
   type IHPetContext,
   type IParentSender,
-} from '@ktaicoder/hw-pet'
-import type { EventEmitter } from 'eventemitter3'
-import { fakeConnect, fakeDisconnect } from './command-util'
+} from '@ktaicoder/hw-pet';
+import type { EventEmitter } from 'eventemitter3';
+import { fakeConnect, fakeDisconnect } from './command-util';
 
 /**
  * Class for sending commands to the hardware.
@@ -23,29 +23,29 @@ export class CommandRunnerBase implements IHPetCommandRunner {
   /**
    * 연결 상태
    */
-  private connectionState: ConnectionState = 'disconnected'
+  private connectionState: ConnectionState = 'disconnected';
 
   /**
    * 하드웨어 ID
    */
-  private hwId: string
+  private hwId: string;
 
   /**
    * 부모 프레임에 데이터 전송하는 도우미 객체
    */
-  private toParent: IParentSender
+  private toParent: IParentSender;
 
   /**
    * 연결 상태 등을 부모 프레임에 notify하기 위한 이벤트 객체
    */
-  private notifyEvents: EventEmitter<HPetNotifiyEventDefinition>
+  private notifyEvents: EventEmitter<HPetNotifiyEventDefinition>;
 
   constructor(options: IHPetContext) {
-    const { hwId, toParent, commandEvents, notifyEvents, uiEvents } = options
+    const { hwId, toParent, commandEvents, notifyEvents, uiEvents } = options;
 
-    this.hwId = hwId
-    this.toParent = toParent
-    this.notifyEvents = notifyEvents
+    this.hwId = hwId;
+    this.toParent = toParent;
+    this.notifyEvents = notifyEvents;
     // commandEvents: 부모 프레임에서 전달되는 명령의 이벤트들
     // notifyEvents: 부모 프레임에 전달하는 연결 상태등의 notification 이벤트들
     // uiEvents: iframe의 ui와 상호작용할 수 있는 이벤트, 필요한 경우에만 사용
@@ -58,8 +58,8 @@ export class CommandRunnerBase implements IHPetCommandRunner {
    * Initialization tasks, such as registering event listeners, can be performed here.
    */
   init = async (): Promise<void> => {
-    log.debug('CommandRunner.init()')
-  }
+    log.debug('CommandRunner.init()');
+  };
 
   /**
    * Lifecycle function, Automatically called.
@@ -68,8 +68,8 @@ export class CommandRunnerBase implements IHPetCommandRunner {
    * Cleanup tasks, such as unregistering event listeners, can be performed here.
    */
   destroy = async () => {
-    log.debug('CommandRunner.destroy()')
-  }
+    log.debug('CommandRunner.destroy()');
+  };
 
   /**
    * Update the connection state variable,
@@ -79,13 +79,13 @@ export class CommandRunnerBase implements IHPetCommandRunner {
    */
   private updateConnectionState_ = (state: ConnectionState) => {
     if (state !== this.connectionState) {
-      this.connectionState = state
-      this.notifyEvents.emit(HPetNotifyEventKeys.connectionStateChanged, this.connectionState)
+      this.connectionState = state;
+      this.notifyEvents.emit(HPetNotifyEventKeys.connectionStateChanged, this.connectionState);
 
       // notify to parent frame (CODINY)
-      this.toParent.notifyConnectionState(this.connectionState)
+      this.toParent.notifyConnectionState(this.connectionState);
     }
-  }
+  };
 
   /**
    * command: getConnectionState
@@ -96,8 +96,8 @@ export class CommandRunnerBase implements IHPetCommandRunner {
    * @returns ConnectionState - connection state
    */
   getConnectionState = async (): Promise<ConnectionState> => {
-    return this.connectionState
-  }
+    return this.connectionState;
+  };
 
   /**
    * command: getHwId
@@ -108,8 +108,8 @@ export class CommandRunnerBase implements IHPetCommandRunner {
    * @returns string - hwId
    */
   getHwId = async (): Promise<string> => {
-    return this.hwId
-  }
+    return this.hwId;
+  };
 
   /**
    * command: connect
@@ -120,12 +120,12 @@ export class CommandRunnerBase implements IHPetCommandRunner {
    * @returns The return value is meaningless.
    */
   connect = async (): Promise<boolean> => {
-    await fakeConnect()
+    await fakeConnect();
 
     // When changing the connection state, be sure to call updateConnectionState_()
-    this.updateConnectionState_('connected')
-    return true
-  }
+    this.updateConnectionState_('connected');
+    return true;
+  };
 
   /**
    * command: disconnect
@@ -137,9 +137,9 @@ export class CommandRunnerBase implements IHPetCommandRunner {
   disconnect = async () => {
     await fakeDisconnect().catch((err) => {
       // ignore error
-    })
+    });
 
     // When changing the connection state, be sure to call updateConnectionState_()
-    this.updateConnectionState_('disconnected')
-  }
+    this.updateConnectionState_('disconnected');
+  };
 }
