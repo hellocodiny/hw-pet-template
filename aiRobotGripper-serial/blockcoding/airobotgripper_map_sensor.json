@@ -1,0 +1,57 @@
+{
+  "type": "airobotgripper_map_sensor",
+  "message0": "AI로봇집게 %1 센서값을 입력 %2 ~ %3 에서 출력 %4 ~ %5 로 변환",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "SENSOR",
+      "options": [
+        [
+          "왼쪽 조도",
+          "3"
+        ],
+        [
+          "오른쪽 조도",
+          "4"
+        ],
+        [
+          "상하 가변저항",
+          "0"
+        ],
+        [
+          "좌우 가변저항",
+          "1"
+        ],
+        [
+          "집게 가변저항",
+          "2"
+        ]
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "IN_MIN",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "IN_MAX",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "OUT_MIN",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "OUT_MAX",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 195,
+  "output": "Number",
+  "tooltip": "입력 범위 밖의 값은 양 끝으로 제한합니다. 반대 방향 범위도 지원합니다. 변환된 숫자를 반환하며 로봇을 직접 움직이지 않습니다.",
+  "helpUrl": ""
+}

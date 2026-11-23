@@ -1,0 +1,177 @@
+{
+  "kind": "flyoutToolbox",
+  "contents": [
+    {
+      "kind": "label",
+      "text": "AI로봇집게"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_servo",
+      "inputs": {
+        "ANGLE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 90
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_servos",
+      "inputs": {
+        "UD": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 90
+            }
+          }
+        },
+        "LR": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 90
+            }
+          }
+        },
+        "GR": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 90
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_pixel",
+      "inputs": {
+        "R": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 255
+            }
+          }
+        },
+        "G": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        "B": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_blue",
+      "inputs": {
+        "VALUE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 128
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_tone",
+      "inputs": {
+        "HZ": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 440
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_sensor"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_up_down"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_left_right"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_gripper"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_pixel_colour"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_pixel_off"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_play_note"
+    },
+    {
+      "kind": "block",
+      "type": "airobotgripper_map_sensor",
+      "inputs": {
+        "IN_MIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        "IN_MAX": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1023
+            }
+          }
+        },
+        "OUT_MIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        "OUT_MAX": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 180
+            }
+          }
+        }
+      }
+    }
+  ]
+}

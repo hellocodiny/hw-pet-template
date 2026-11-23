@@ -1,0 +1,45 @@
+{
+  "type": "airobotgripper_pixel",
+  "message0": "AI로봇집게 RGB LED %1 빨강 %2 초록 %3 파랑 %4",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "PIXEL",
+      "options": [
+        [
+          "전체",
+          "2"
+        ],
+        [
+          "1번",
+          "0"
+        ],
+        [
+          "2번",
+          "1"
+        ]
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "R",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "G",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "B",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 210,
+  "tooltip": "연결 후 사용합니다. 출력 정지는 마지막 관절 목표각을 유지하고 LED/부저를 끕니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

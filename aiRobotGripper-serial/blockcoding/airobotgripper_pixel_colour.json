@@ -1,0 +1,35 @@
+{
+  "type": "airobotgripper_pixel_colour",
+  "message0": "AI로봇집게 RGB LED %1 %2 색으로 켜기",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "PIXEL",
+      "options": [
+        [
+          "전체",
+          "2"
+        ],
+        [
+          "1번",
+          "0"
+        ],
+        [
+          "2번",
+          "1"
+        ]
+      ]
+    },
+    {
+      "type": "field_colour",
+      "name": "COLOUR",
+      "colour": "#ff0000"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 210,
+  "tooltip": "색상 칸을 눌러 팔레트에서 선택합니다. 검정은 꺼짐입니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}

@@ -1,0 +1,30 @@
+{
+  "type": "airobotgripper_left_right",
+  "message0": "AI로봇집게 좌우 관절 %1 이동",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "POSITION",
+      "options": [
+        [
+          "왼쪽",
+          "180"
+        ],
+        [
+          "가운데",
+          "90"
+        ],
+        [
+          "오른쪽",
+          "0"
+        ]
+      ]
+    }
+  ],
+  "inputsInline": true,
+  "colour": 210,
+  "tooltip": "기존 PC 앱과 동일한 방향/각도 매핑. 가운데는 90도입니다.",
+  "helpUrl": "",
+  "previousStatement": null,
+  "nextStatement": null
+}
