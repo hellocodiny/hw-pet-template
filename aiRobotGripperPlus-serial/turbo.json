@@ -6,7 +6,7 @@
     "NEXT_PUBLIC_PRODUCTION",
     "NEXT_PUBLIC_DEBUG"
   ],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]

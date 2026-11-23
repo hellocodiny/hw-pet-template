@@ -6,10 +6,11 @@
         "name": "next",
       },
     ],
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
     },
+    // TS 7은 @types/*를 자동 포함하지 않으므로 Web Serial 전역 타입을 명시한다
+    "types": ["w3c-web-serial"],
     "noImplicitAny": false,
     // 아래 문제를 해결하기 위해 declaration:false로 설정
     // The inferred type of 'X' cannot be named without a reference

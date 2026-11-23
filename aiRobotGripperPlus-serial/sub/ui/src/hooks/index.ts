@@ -1,1 +1,1 @@
-export * from './usePet'
+export * from './usePet';

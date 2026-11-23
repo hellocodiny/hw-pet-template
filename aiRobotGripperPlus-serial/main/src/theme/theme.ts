@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
 // import { Roboto } from 'next/font/google'
-import { createTheme } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles';
 
 // const roboto = Roboto({
 //   weight: ['300', '400', '500', '700'],
@@ -10,6 +10,8 @@ import { createTheme } from '@mui/material/styles'
 // })
 
 const theme = createTheme({
+  // 색상을 CSS 변수로 내보내 SSR 직후 깜빡임과 런타임 재계산을 줄인다
+  cssVariables: true,
   palette: {
     mode: 'light',
   },
@@ -27,6 +29,6 @@ const theme = createTheme({
       },
     },
   },
-})
+});
 
-export default theme
+export default theme;
