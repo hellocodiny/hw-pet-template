@@ -1,4 +1,4 @@
-# 버전을 고정한 7개 프로젝트의 취약점 현황만 보고한다.
+# 버전을 고정한 6개 프로젝트의 취약점 현황만 보고한다.
 # 코드는 변경하지 않고 실패해도 다른 작업을 막지 않는다(continue-on-error).
 # 해결은 업체 협의와 실기기 검증이 선행되어야 한다.
 name: Audit (legacy)
@@ -20,7 +20,6 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - aiRobotGripper-serial
           - exMarsCube
           - huenit-serial
           - marty

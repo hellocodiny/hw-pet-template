@@ -1,5 +1,5 @@
-# 업그레이드한 3개 프로젝트만 검증한다.
-# 나머지 7개는 업체가 개발했고 실기기 검증이 불가능해 버전을 고정한다. audit-legacy.yml 참고.
+# 업그레이드한 4개 프로젝트만 검증한다.
+# 나머지 6개는 업체가 개발했고 실기기 검증이 불가능해 버전을 고정한다. audit-legacy.yml 참고.
 name: CI
 
 on:
@@ -9,12 +9,14 @@ on:
       - "very-basic-example/**"
       - "pingpong-ble/**"
       - "aiRobotGripperPlus-serial/**"
+      - "aiRobotGripper-serial/**"
       - ".github/workflows/ci.yml"
   pull_request:
     paths:
       - "very-basic-example/**"
       - "pingpong-ble/**"
       - "aiRobotGripperPlus-serial/**"
+      - "aiRobotGripper-serial/**"
       - ".github/workflows/ci.yml"
 
 permissions:
@@ -31,7 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: [very-basic-example, pingpong-ble, aiRobotGripperPlus-serial]
+        project: [very-basic-example, pingpong-ble, aiRobotGripperPlus-serial, aiRobotGripper-serial]
     defaults:
       run:
         working-directory: ${{ matrix.project }}
