@@ -10,7 +10,7 @@ PingPong G1~G4
 - nextjs@16 (Turbopack, App Router)
 - react@19
 - workspace with turborepo
-- pnpm
+- pnpm@12
 - typescript@7
 - @mui/material@9, @mui/material-nextjs@9
 - oxlint, oxfmt
@@ -26,18 +26,22 @@ pnpm dev
 # open url http://localhost:3000
 ```
 
-## 명령어 예시
+그 밖의 명령어(프로젝트 루트에서 실행):
 
-```js
-await hw.foo() // response 'bar'
-await hw.echo('hello') // response 'hello'
-```
+| 명령어              | 설명                                       |
+| ------------------- | ------------------------------------------ |
+| `pnpm build`        | 프로덕션 빌드                              |
+| `pnpm lint`         | oxlint로 린트                              |
+| `pnpm format`       | oxfmt로 `js, jsx, ts, tsx, md` 파일 포매팅 |
+| `pnpm format:check` | 파일을 수정하지 않고 포매팅 검사           |
 
 ## 폴더 구조
 
 - `main/`
   - 코디니 서비스 내에 임베딩될 iframe의 내용 부분입니다.
   - NextJS로 작성된 웹페이지의 소스코드입니다.
+  - `main/app/` - 페이지. `/`(G1~G4 선택), `/g1`, `/g2`, `/g3`, `/g4`
+  - `main/src/hw/` - 하드웨어 연결과 제어 명령
 - `sub/typescript-config/`
   - TypeScript 설정이 포함되어 있습니다.
 - `sub/ui/`
@@ -50,10 +54,9 @@ await hw.echo('hello') // response 'hello'
   - 이 프로젝트는 `sub/ui` 라이브러리를 추가하였습니다.
 - `main/` 폴더의 소스코드에서 수정할 부분은 다음과 같습니다.
   - `main/public/logo.png` - 하드웨어 이미지 파일
-  - `main/src/constants.ts` - 하드웨어 ID 설정
-  - `main/src/hw/CommandRunner.ts` - 하드웨어 제어 명령들 추가하는 곳
-
-수정할 내용은 `main/` 폴더의 세 파일이 전부입니다.
+  - `main/src/constant.ts` - 하드웨어 ID와 이름 설정
+  - `main/src/hw/CommandRunnerBase.ts` - 연결 상태, 생명주기, 공통 연결 처리
+  - `main/src/hw/CommandRunnerG1.ts` ~ `CommandRunnerG4.ts` - 모델별 연결과 제어 명령
 
 ### 하드웨어 이미지 파일 등록
 
@@ -90,28 +93,29 @@ await hw.echo('hello') // response 'hello'
 
 여러 페이지가 같은 `CommandRunner`를 사용할 수도 있지만, 다른 `CommandRunner`를 사용할 수도 있습니다.
 
-- `G1`의 CommandRunner는 `main/src/hw/CommandRunnerG1.tsx`
-- `G2`의 CommandRunner는 `main/src/hw/CommandRunnerG2.tsx`
-- `G3`의 CommandRunner는 `main/src/hw/CommandRunnerG3.tsx`
-- `G4`의 CommandRunner는 `main/src/hw/CommandRunnerG4.tsx`
+- `G1`의 CommandRunner는 `main/src/hw/CommandRunnerG1.ts`
+- `G2`의 CommandRunner는 `main/src/hw/CommandRunnerG2.ts`
+- `G3`의 CommandRunner는 `main/src/hw/CommandRunnerG3.ts`
+- `G4`의 CommandRunner는 `main/src/hw/CommandRunnerG4.ts`
 
 입니다.
 
 ### 다중 페이지 - 로고
 
-각 페이지 별로 로고 파일을 설정할 수 있습니다. 다음과 같이 설정하고 있습니다.
+각 페이지 별로 로고 파일을 설정할 수 있습니다. 각 페이지의 `MainUi`에 `logoImageUrl`로 전달합니다. 다음과 같이 설정하고 있습니다.
 
-- `G1`의 로고 파일은 `main/public/logo_g1.png`입니다.
-- `G2`의 로고 파일은 `main/public/logo_g2.png`입니다.
-- `G3`의 로고 파일은 `main/public/logo_g3.png`입니다.
-- `G4`의 로고 파일은 `main/public/logo_g4.png`입니다.
+- `G1`의 로고 파일은 `main/public/G1.png`입니다.
+- `G2`의 로고 파일은 `main/public/G2.png`입니다. 연결 상태에 따라 `G2_1.png`, `G2_2.png`로 바뀝니다.
+- `G3`의 로고 파일은 `main/public/G3.png`입니다.
+- `G4`의 로고 파일은 `main/public/G4.png`입니다.
+- `/` 페이지의 모델 선택 이미지는 `main/public/pingpong1.png` ~ `pingpong4.png`입니다.
 
 ### 하드웨어의 ID와 이름
 
-`main/src/constants.ts` 파일에서 하드웨어 ID와 이름을 설정해주세요.
+`main/src/constant.ts` 파일에서 하드웨어 ID와 이름을 설정해주세요.
 
 ```js
-// file: src/constant.ts
+// file: main/src/constant.ts
 
 /**
  * hardware id
@@ -134,100 +138,32 @@ export const HW_NAME = {
 
 ### 하드웨어 제어 명령 추가
 
-`CommandRunner.ts` 파일은 연결과 제어 명령과 관련한 내용들을 포함하고 있습니다. 명령들을 추가하기 위해 이 파일을 수정하세요.
+명령 코드는 `main/src/hw/`의 파일들로 나뉩니다.
 
-아래는 구현해야 하는 최소한의 내용입니다.
+- `CommandRunnerBase.ts` - 연결 상태, 생명주기(`init()`, `destroy()`), 공통 `getConnectionState()`, `getHwId()`, `connect()`, `disconnect()`를 구현합니다.
+- `CommandRunnerG1.ts` ~ `CommandRunnerG4.ts` - `CommandRunnerBase`를 상속합니다. 모델별 BLE 연결과 제어 명령이 있습니다.
+
+메서드의 이름이 명령어입니다. 예를 들어 블록코딩에서 `move`라는 명령어를 실행하려면 해당 모델의 `CommandRunnerGx`에 `move()` 메서드를 작성하시면 됩니다.
+
+#### 연결 상태 변경
+
+연결 상태를 바꿀 때는 반드시 `updateConnectionState_()`를 호출하세요. 상태가 바뀐 경우에만 이벤트를 발생시키고 부모 프레임(CODINY)에 알립니다.
 
 ```js
-// file: main/src/hw/CommandRunner.ts
+// file: main/src/hw/CommandRunnerG1.ts
 
-/**
- * 하드웨어에 명령을 보내는 클래스
- * 필요한 명령어들을 추가하세요.
- * 메서드의 이름이 명령어입니다. 예를 들어 블록코딩에서 move라는 명령어를 실행하려면 move() 메서드를 작성하시면 됩니다.
- *
- * 라이프 사이클 메서드: init(), destroy()
- * 필수 구현 메서드: getConnectionState(), getHwId(), connect(), disconnect()
- * 위에 언급한 메서드 이외의 메서드들은 추가적인 명령어들입니다.
- */
-export class CommandRunner implements IHPetCommandRunner {
-  /**
-   * 라이프 사이클 메서드, 자동으로 호출됩니다.
-   * 반드시 구현해야 하는 메서드입니다.
-   * 부모 프레임(CODINY)과 통신하기 전에 한번 호출됩니다.
-   * 이벤트 리스너 등록 같은 초기화 관련 코드를 작성하기에 적합니다.
-   * 구현할 게 없다면, 빈 메서드로 남겨두세요.
-   */
-  init = async (): Promise<void> => {
-    log.debug('CommandRunner.init()')
-  }
+connect = async (): Promise<boolean> => {
+  // ... BLE 장치 연결
 
-  /**
-   * 라이프 사이클 메서드, 자동으로 호출됩니다.
-   * 반드시 구현해야 하는 메서드입니다.
-   * 하드웨어와의 연결이 끊어진 후에 한번 호출됩니다.
-   * 이벤트 리스너 해제 같은 리소스 정리 관련 코드를 작성하기에 적합합니다.
-   */
-  destroy = async () => {
-    log.debug('CommandRunner.destroy()')
-  }
-
-
-  /**
-   * 명령어: getConnectionState
-   *
-   * 현재의 연결 상태를 반환
-   * 반드시 구현해야 하는 메서드입니다.
-   * 이 메서드의 반환값은 자동으로 부모 프레임(CODINY)에 전달됩니다.
-   * @returns ConnectionState - connection state
-   */
-  getConnectionState = async (): Promise<ConnectionState> => {
-    // ...
-  }
-
-  /**
-   * 명령어: getHwId
-   *
-   * 하드웨어 ID를 반환
-   * 반드시 구현해야 하는 메서드입니다.
-   * 메서드의 반환값은 자동으로 부모 프레임(CODINY)에 전달됩니다.
-   * @returns string - hwId
-   */
-  getHwId = async (): Promise<string> => {
-    // ...
-  }
-
-  /**
-   * 명령어: connect
-   *
-   * 하드웨어에 연결
-   * 반드시 구현해야 하는 메서드입니다.
-   * @returns 반환값은 의미 없습니다.
-   */
-  connect = async (): Promise<boolean> => {
-    await fakeConnect()
-
-    // When changing the connection state, be sure to call updateConnectionState_()
-    this.updateConnectionState_('connected')
-    return true
-  }
-
-  /**
-   * 명령어: disconnect
-   *
-   * 하드웨어와의 연결을 종료하는 메서드
-   * 반드시 구현해야 하는 메서드입니다.
-   */
-  disconnect = async () => {
-    await fakeDisconnect().catch((err) => {
-      // ignore error
-    })
-
-    // When changing the connection state, be sure to call updateConnectionState_()
-    this.updateConnectionState_('disconnected')
-  }
+  this.updateConnectionState_('connected')
+  return true
 }
 
+disconnect = async () => {
+  // ... BLE 장치 연결 해제
+
+  this.updateConnectionState_('disconnected')
+}
 ```
 
 #### 연결 상태 리스너
@@ -235,49 +171,18 @@ export class CommandRunner implements IHPetCommandRunner {
 - 연결 상태 리스너 같은 이벤트 리스너들은 `init()` 에서 등록하는 것을 권장합니다.
 - 그리고 `destroy()` 메서드에서 이벤트 리스너들을 해제하세요.
 
-예를 들면, 아래와 같이 할 수 있습니다.
-
-```js
-export class CommandRunner implements IHPetCommandRunner {
-  // ...
-
-  init = async (): Promise<void> => {
-    // 이벤트 리스너 등록
-  }
-
-
-  destroy = async () => {
-    // 이벤트 리스너 해제
-  }
-}
-
-```
-
 #### 명령어 추가
 
-필요할 명령어들을 `CommandRunner.ts` 파일에 추가하세요. 예를 들면 아래와 같이 할 수 있습니다.
+필요할 명령어들을 해당 모델의 `CommandRunnerGx.ts` 파일에 추가하세요. 메서드의 반환값은 자동으로 부모 프레임(CODINY)에 전달됩니다. 예를 들면 아래와 같이 할 수 있습니다.
 
 ```js
-// file: main/src/hw/CommandRunner.ts
+// file: main/src/hw/CommandRunnerG1.ts
 
-export class CommandRunner implements IHPetCommandRunner {
-
+export class CommandRunnerG1 extends CommandRunnerBase {
   // ... omit
 
   /**
-   * 명령어: foo
-   *
-   * 메서드의 반환값은 자동으로 부모 프레임(CODINY)에 전달됩니다.
-   * @returns 'bar'
-   */
-  foo = async (): Promise<string> => {
-    return 'bar'
-  }
-
-  /**
    * 명령어: echo
-   *
-   * 메서드의 반환값은 자동으로 부모 프레임(CODINY)에 전달됩니다.
    * @param what - string to echo
    * @returns echo string
    */

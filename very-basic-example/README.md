@@ -1,19 +1,18 @@
-## VeryBasicExample
-
 # VeryBasic
 
 ![VeryBasic](./main/public/logo.png)
 
-VeryBasic
+An example containing the minimum basic implementation of a hardware iframe for the Codiny service.
+This project is kept upgraded to the latest dependency versions, so it also serves as the reference for new projects.
 
 ## Technical stacks
 
 - nodejs@^20.19 (Next 16 최소 요구 20.9, oxlint/oxfmt 요구 ^20.19)
 - nextjs@16 (Turbopack, App Router)
 - react@19
-- worspace with turborepo
-- pnpm
-- typescript@^5.3.3
+- workspace with turborepo@2
+- pnpm@12
+- typescript@7
 - @mui/material@9, @mui/material-nextjs@9
 - oxlint, oxfmt
 
@@ -28,12 +27,21 @@ pnpm dev
 # open url http://localhost:3000
 ```
 
+Other commands (run at the project root):
+
+| Command             | Description                                     |
+| ------------------- | ----------------------------------------------- |
+| `pnpm build`        | Production build (`main/out` for static export) |
+| `pnpm lint`         | Lint with oxlint                                |
+| `pnpm format`       | Format `js, jsx, ts, tsx, md` files with oxfmt  |
+| `pnpm format:check` | Check formatting without modifying files        |
+
 ## Some Command Examples
 
 ```js
 // rest
-hw.foo() // response 'bar'
-await hw.echo('hello') // response 'hello'
+hw.foo(); // response 'bar'
+await hw.echo('hello'); // response 'hello'
 ```
 
 ## Folder Structure
@@ -41,6 +49,7 @@ await hw.echo('hello') // response 'hello'
 - `main/`
   - Contains the content of the iframe to be embedded in the Codiny service.
   - Includes the source code of the web page written in NextJS.
+  - `main/src/hw/` - Hardware connection and control commands.
 - `sub/typescript-config/`
   - Contains TypeScript configurations.
 - `sub/ui/`
@@ -51,7 +60,8 @@ await hw.echo('hello') // response 'hello'
 - There is no need to modify the `sub/` folder.
 - The parts to be modified in the source code of the `main/` folder are as follows:
   - `main/public/logo.png` - Register hardware image
-  - `main/src/constants.ts` - Set hardware ID and name
+  - `main/src/constant.ts` - Set hardware ID and name
+  - `main/src/hw/CommandRunnerBase.ts` - Implement the hardware connection
   - `main/src/hw/CommandRunner.ts` - Add hardware control commands
 
 That's all.
@@ -65,123 +75,65 @@ To replace the logo file, save the file at the following path with the filename 
 
 ### Setting Hardware ID and Name
 
-Please modify the main/src/constants.ts file.
+Please modify the `main/src/constant.ts` file.
 
 ```js
-// file: src/constant.ts
+// file: main/src/constant.ts
 
 /**
  * hardware id
  */
-export const HW_ID = 'veryBasic'
+export const HW_ID = 'veryBasic';
 
 /**
  * hardware name
  */
 export const HW_NAME = {
-  en: 'Very Basic',
+  en: 'VeryBasic',
   ko: '기본',
-}
+};
 ```
 
 ### Adding Hardware Control Commands
 
-The `CommandRunner.ts` file contains content related to connection and control commands. Please modify this file to write additional commands.
+The command code is split into two files in `main/src/hw/`:
 
-Below is a summary of the minimum content that must be implemented:
+- `CommandRunnerBase.ts` - Connection state, lifecycle, and the connect/disconnect commands.
+- `CommandRunner.ts` - Extends `CommandRunnerBase`. Hardware control commands are added here.
+
+Write the method names the same as the commands used in the blocks.
+
+#### Implementing the Connection
+
+`CommandRunnerBase.ts` implements the methods that every hardware must provide:
+
+- Lifecycle methods (called automatically): `init()`, `destroy()`
+- Mandatory commands: `getConnectionState()`, `getHwId()`, `connect()`, `disconnect()`
+
+The template uses `fakeConnect()` and `fakeDisconnect()` from `command-util.ts`. Replace them with the real connection code of your hardware.
 
 ```js
-// file: main/src/hw/CommandRunner.ts
+// file: main/src/hw/CommandRunnerBase.ts
 
-/**
- * Class for sending commands to the hardware.
- * Add the necessary commands here.
- * Write the method names the same as the commands.
- *
- * Lifecycle methods: init(), destroy()
- * Mandatory implementation methods: getConnectionState(), getHwId(), connect(), disconnect()
- * Additional commands are the remaining methods other than the ones mentioned above (e.g., echo).
- */
-export class CommandRunner implements IHPetCommandRunner {
-  /**
-   * Lifecycle function, Automatically called.
-   * An essential function that must be implemented.
-   * Called once before communicating with parent frame (CODINY).
-   * Initialization tasks, such as registering event listeners, can be performed here.
-   */
-  init = async (): Promise<void> => {
-    log.debug('CommandRunner.init()')
-  }
+connect = async (): Promise<boolean> => {
+  await fakeConnect() // replace with the real hardware connection
 
-  /**
-   * Lifecycle function, Automatically called.
-   * An essential function that must be implemented.
-   * Called once after the connection with the hardware is terminated.
-   * Cleanup tasks, such as unregistering event listeners, can be performed here.
-   */
-  destroy = async () => {
-    log.debug('CommandRunner.destroy()')
-  }
-
-
-  /**
-   * command: getConnectionState
-   *
-   * get current connection state
-   * An essential function that must be implemented.
-   * The return value is automatically sent to the parent frame (CODINY)
-   * @returns ConnectionState - connection state
-   */
-  getConnectionState = async (): Promise<ConnectionState> => {
-    // ...
-  }
-
-  /**
-   * command: getHwId
-   *
-   * get hardware id
-   * An essential function that must be implemented.
-   * The return value is automatically sent to the parent frame (CODINY)
-   * @returns string - hwId
-   */
-  getHwId = async (): Promise<string> => {
-    // ...
-  }
-
-  /**
-   * command: connect
-   *
-   * Function to connect to the hardware.
-   * Check the connection status in ricConnector.setEventListener().
-   * An essential function that must be implemented.
-   * @returns The return value is meaningless.
-   */
-  connect = async (): Promise<boolean> => {
-    await fakeConnect()
-
-    // When changing the connection state, be sure to call updateConnectionState_()
-    this.updateConnectionState_('connected')
-    return true
-  }
-
-  /**
-   * command: disconnect
-   *
-   * Function to disconnect from the hardware.
-   * An essential function that must be implemented.
-   * @returns The return value is meaningless.
-   */
-  disconnect = async () => {
-    await fakeDisconnect().catch((err) => {
-      // ignore error
-    })
-
-    // When changing the connection state, be sure to call updateConnectionState_()
-    this.updateConnectionState_('disconnected')
-  }
+  // When changing the connection state, be sure to call updateConnectionState_()
+  this.updateConnectionState_('connected')
+  return true
 }
 
+disconnect = async () => {
+  await fakeDisconnect().catch((err) => {
+    // ignore error
+  })
+
+  // When changing the connection state, be sure to call updateConnectionState_()
+  this.updateConnectionState_('disconnected')
+}
 ```
+
+`updateConnectionState_()` emits the connection state event and notifies the parent frame (CODINY) only when the state has changed.
 
 #### Connection State Listener
 
@@ -191,36 +143,29 @@ export class CommandRunner implements IHPetCommandRunner {
 For example, you can do it as follows:
 
 ```js
-export class CommandRunner implements IHPetCommandRunner {
+export class CommandRunnerBase implements IHPetCommandRunner {
   // ...
 
   init = async (): Promise<void> => {
     // add event listener
   }
 
-
   destroy = async () => {
     // remove event listener
   }
 }
-
 ```
 
 #### Adding a Command
 
-Add the necessary commands to `CommandRunner.ts`. For example, you can do it as follows:
+Add the necessary commands to `CommandRunner.ts`. The return value is automatically sent to the parent frame (CODINY). For example, you can do it as follows:
 
 ```js
 // file: main/src/hw/CommandRunner.ts
 
-export class CommandRunner implements IHPetCommandRunner {
-
-  // ... omit
-
+export class CommandRunner extends CommandRunnerBase {
   /**
    * command: foo
-   *
-   * The return value is automatically sent to the parent frame (CODINY)
    * @returns 'bar'
    */
   foo = async (): Promise<string> => {
@@ -229,8 +174,6 @@ export class CommandRunner implements IHPetCommandRunner {
 
   /**
    * command: echo
-   *
-   * The return value is automatically sent to the parent frame (CODINY)
    * @param what - string to echo
    * @returns echo string
    */

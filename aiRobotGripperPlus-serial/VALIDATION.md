@@ -1,4 +1,5 @@
 # PR 제출 검증
+
 - pnpm test: 총43개 통과(통신/제어/API19개, 블록24개).
 - pnpm build: Next.js 컴파일/타입/린트/정적 페이지 빌드 통과.
 - 19개 블록 정의/개별 JSON/제너레이터/목록/API 일치 검사.
@@ -11,5 +12,13 @@
 - 펌웨어 수정 없음. 로컬 Blockly 테스트 호스트 없음.
 
 ## PR 준비 재확인 (2026-11-22)
+
 - 소스 코드와 펌웨어는 변경하지 않고 제출 문서만 정리했습니다.
 - 자동 검사 43개 재실행 통과. 빌드는 동일 소스의 Turbo 캐시 성공 결과를 재사용했습니다.
+
+## 의존성 업그레이드 (2026-11-23)
+
+- React 19, Next 16, MUI 9, TypeScript 7, turbo 2, oxlint/oxfmt 적용. ESLint/Prettier 제거.
+- `pnpm audit`: 122건(critical 8, high 57) → 0건.
+- `pnpm typecheck`, `pnpm test`(43개), `pnpm build`(BASE_PATH `/`, `/codiny`), `pnpm format:check` 통과.
+- 실제 로봇과 USB 동글 연결은 이 변경 후 다시 확인하지 않았습니다.
